@@ -21,17 +21,15 @@ void twitterPolled(const char *name, const char *data) {
 }
 
 int dispenseButton(String command) {
+    if (servo.read() != servoIdlePos) {
+        servo.write(servoIdlePos);
+        delay(1500);
+    }
     for (int i = 0; i < atoi(command); i++) {
-        switch (servo.read()) {
-            case 0:
-                servo.write(servoDispensePos);
-                break;
-            case 180:
-            default:
-                servo.write(servoIdlePos);
-                break;
-        }
-        delay(3500);
+        servo.write(servoDispensePos);
+        delay(1500);
+        servo.write(servoIdlePos);
+        delay(1500);
     }
     
     return 1;
