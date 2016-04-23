@@ -1,6 +1,6 @@
 int servoPin = A4;
 int servoIdlePos = 0;
-int servoDispensePos = 180;
+int servoDispensePos = 60;
 Servo servo;
 
 void setup() {
